@@ -4,7 +4,11 @@
     <TodoSimpleForm @add-todo="addTodo" />
     <div v-if="!todos.length">추가된 Todo가 없습니다</div>
     <!-- :todos 바인딩으로 자식 컴포넌트인 TodoList에 todos를 넘겨준다 -->
-    <TodoList :todos="todos" @toggle-todo="toggletodo" />
+    <TodoList
+      :todos="todos"
+      @toggle-todo="toggletodo"
+      @delete-todo="deletetodo"
+    />
   </div>
 </template>
 <script>

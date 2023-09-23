@@ -44,8 +44,13 @@ export default {
     const toggleTodo = (index) => {
       context.emit('toggle-todo', index);
     };
+
+    const deletetodo = (index) => {
+      context.emit('delete-todo', index);
+    };
     return {
       toggleTodo,
+      deletetodo,
     };
   },
 };
