@@ -26,14 +26,17 @@
 <script>
 import { ref } from 'vue';
 export default {
-  setup(props, context) {
+  // vue3부터는 emits에도 배열을 넣어서 보내야한다.
+  emits: ['add-todo'],
+
+  setup(props, { emit }) {
     const todo = ref('');
 
     const onSubmit = () => {
       if (todo.value === '') {
         hasError.value = true;
       } else {
-        context.emit('add-todo', {
+        emit('add-todo', {
           id: Date.now,
           subject: todo.value,
           completed: false,
